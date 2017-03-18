@@ -9,11 +9,11 @@ public class Employee {
 	int Id;
 	int month,yearsWorked;
 	List<Boolean> lateOrNot = new ArrayList<Boolean>();
-	List<Integer> interRating = new ArrayList<Integer>();
+	List<Double> interRating = new ArrayList<Double>();
 	HashMap<String,String> actionToContext = new HashMap<String,String>();
 	
 	
-	public Employee(int Id, int month, int year, List<Boolean> lateOrNot, List<Integer> interRating, HashMap<String,String> actionToContext) {
+	public Employee(int Id, int month, int year, List<Boolean> lateOrNot, List<Double> interRating, HashMap<String,String> actionToContext) {
 		this.Id = Id;
 		this.month = month;
 		this.yearsWorked = year;
@@ -33,11 +33,15 @@ public class Employee {
 	
 	public double averageRating() {
 		double i = 0;
-		double n = (double)lateOrNot.size();
-		for(boolean b : lateOrNot) {
-			i += (b? 1 : 0);
+		double n = (double)interRating.size();
+		for(double d : interRating) {
+			i += d;
 		}
 		return i / n;
+	}
+	
+	public double averageResponse() {
+		
 	}
 	
 	
