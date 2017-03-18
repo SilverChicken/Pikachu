@@ -2,6 +2,8 @@ package person_input;
 
 import person_input.Employee;
 import firing_simulator.Learn_Table;
+
+import java.util.HashMap;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,45 +20,47 @@ import java.util.ArrayList;
  * @author LIKHITHASAI
  */
 public class Random_data_sheet {
-    private ArrayList<Employee> emps = new ArrayList<Employee>();
-	private ArrayList<Boolean> lateornot = new ArrayList<Boolean>();
-        private ArrayList<Double> interrating = new ArrayList<Double>();
-	public int idgen()
+
+    private static ArrayList<Employee> emps = new ArrayList<Employee>();	 
+        
+	public static int idgen()
 	{
 		Random rand = new Random();
 		int min = 1000;
 		int max = 9999;
-	        int idg=rand.nextInt(rand.nextInt((max - min) + 1));
+	        int idg=(int) (Math.random() * max + min);
 		return idg;
 	}
-	public int yeargen()
+	public static int yeargen()
 	{
 		Random rand = new Random();
 		int min = 2000;
 		int max = 2016;
-	        int yearg=rand.nextInt(rand.nextInt((max - min) + 1));
+	        int yearg=(int) ((Math.random() * max) + min);
 		return yearg;
 	} 
-	public int monthgen()
+	public static int monthgen()
 	{
 		Random rand = new Random();
 		int min = 0;
 		int max = 11;
-	        int monthg=rand.nextInt(rand.nextInt((max - min) + 1));
+	        int monthg=(int)((Math.random() * max) + min);
 		return monthg;
 	} 
-	public ArrayList<Boolean> boolgen()
+	public static List<Boolean> boolgen()
 	{
 		Random randomBoolean = new Random();
+		ArrayList<Boolean> lateornot = new ArrayList<Boolean>();
                 for (int i = 0; i < 40; i++) 
 		{
             		lateornot.add(randomBoolean.nextBoolean());
         	}
 		return lateornot;
 	} 
-	public ArrayList<Double> interratinggen()
+	public static List<Double> interratinggen()
 	{
 		Random rand = new Random();
+		ArrayList<Double> interrating = new ArrayList<Double>();
 	        for (int i = 0; i < 40; i++) 
 		{
             		interrating.add(10 * rand.nextDouble());
@@ -66,7 +70,7 @@ public class Random_data_sheet {
 	public static void main (String[] args) {
 		for(int i=0;i<40;i++)
                 {
-                    emps.add((idgen(),monthgen(),yeargen(),boolgen(),interratinggen(),new Hashmap<String,String>));
+                    emps.add(new Employee(idgen(),monthgen(),yeargen(),boolgen(),interratinggen(),new HashMap<String,String>()));
                 }
 		Learn_Table.Learn(emps);
 	}
