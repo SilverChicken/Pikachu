@@ -11,6 +11,8 @@ import org.encog.neural.networks.layers.BasicLayer;
 import org.encog.neural.networks.training.propagation.resilient.ResilientPropagation;
 
 public class Automation_Neural {
+	
+	BasicNetwork n;
 
 	private static double[][] employes_data_matrix = { 
 			{ 0.77, 0.12, 0.55, 0.75 }, 
@@ -41,13 +43,18 @@ public class Automation_Neural {
 			{0.5}
 	};
 	
-	public static void main(String[] args) {
-		BasicNetwork n = new BasicNetwork();
+	public Automation_Neural() {
+		n = new BasicNetwork();
 		n.addLayer(new BasicLayer(null, true, 2));
 		n.addLayer(new BasicLayer(new ActivationSigmoid(), true, 3));
 		n.addLayer(new BasicLayer(new ActivationSigmoid(), false, 1));
 		n.getStructure().finalizeStructure();
 		n.reset();
+		
+		train();
+	}
+	
+	private void train(){
 		// Creating the training dataset
 		MLDataSet trainingSet = new BasicMLDataSet(employes_data_matrix, target_data_matrix);
 
@@ -63,7 +70,7 @@ public class Automation_Neural {
 		// Execute order 66
 		System.out.println("Neural Network Results:");
 
-		for (MLDataPair pair : trainingSet) {
+		for (MLDataPair pair : trainingSet){
 			final MLData output = n.compute(pair.getInput());
 			System.out.println(pair.getInput().getData(0) + ", actual="
 					+ output.getData(0) + ",ideal=" + pair.getIdeal().getData(0));
@@ -73,7 +80,6 @@ public class Automation_Neural {
 			final MLData output = n.compute(pair.getInput());
 			System.out.println(pair.getInput().getData(0) + ", actual=" + output.getData(0));
 		}
-	
 	}
 
 }

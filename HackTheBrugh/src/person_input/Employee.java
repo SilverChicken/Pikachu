@@ -43,7 +43,7 @@ public class Employee {
 		return (i / n);	
 	}
 	
-	abstract double averageResponse() {
+	public double averageResponse() {
 		return 0.0;
 	}
 	

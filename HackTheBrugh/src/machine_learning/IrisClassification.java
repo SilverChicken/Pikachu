@@ -21,7 +21,7 @@
  * and trademarks visit:
  * http://www.heatonresearch.com/copyright
  */
-package org.encog.examples.guide.classification;
+package machine_learning;
 
 import java.io.File;
 import java.net.MalformedURLException;
