@@ -2,9 +2,16 @@ package person_input;
 
 import java.util.HashMap;
 import java.util.List;
+
+import jdk.nashorn.internal.runtime.regexp.joni.MatcherFactory;
+
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
 
 public class Employee {
+	
+	final int MAX_RATING = 10;
 	
 	int Id;
 	int month,yearsWorked;
@@ -31,20 +38,28 @@ public class Employee {
 		return i / n;
 	}
 	
+	/**
+	 * Calculates the average ratings given to an employee
+	 * and returns the normalised value.
+	 * @return A value between 0.0 - 1.0
+	 */
 	public double averageRating() {
 		double i = 0;
 		double n = (double)interRating.size();
 		for(double d : interRating) {
 			i += d;
 		}
-		return i / n;
+		return (i / n) / MAX_RATING;	
 	}
 	
 	public double averageResponse() {
-		
+		return 0.5;
+	}	
+	
+	public int monthsWorked() {
+		Calendar c = Calendar.getInstance();
+		int diffYear = c.get(Calendar.YEAR) - this.yearsWorked;
+		int diffMonths = diffYear * 12 + c.get(Calendar.MONTH) - this.month +1;
+		return diffMonths;
 	}
-	
-	
-		
-	
 }
