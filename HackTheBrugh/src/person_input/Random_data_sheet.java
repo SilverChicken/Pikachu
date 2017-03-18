@@ -36,7 +36,7 @@ public class Random_data_sheet {
 		Random rand = new Random();
 		int min = 2000;
 		int max = 2016;
-	        int yearg=(int) ((Math.random() * max) + min);
+	        int yearg=(int) ((Math.random() * (max - min)) + min);
 		return yearg;
 	} 
 	public static int monthgen()
@@ -51,7 +51,7 @@ public class Random_data_sheet {
 	{
 		Random randomBoolean = new Random();
 		ArrayList<Boolean> lateornot = new ArrayList<Boolean>();
-                for (int i = 0; i < 40; i++) 
+                for (int i = 0; i < 7; i++) 
 		{
             		lateornot.add(randomBoolean.nextBoolean());
         	}
@@ -61,14 +61,14 @@ public class Random_data_sheet {
 	{
 		Random rand = new Random();
 		ArrayList<Double> interrating = new ArrayList<Double>();
-	        for (int i = 0; i < 40; i++) 
+	        for (int i = 0; i < 3; i++) 
 		{
             		interrating.add(10 * rand.nextDouble());
         	}
 		return interrating;
 	} 
 	public static void main (String[] args) {
-		for(int i=0;i<40;i++)
+		for(int i=0;i<100;i++)
                 {
                     emps.add(new Employee(idgen(),monthgen(),yeargen(),boolgen(),interratinggen(),new HashMap<String,String>()));
                 }

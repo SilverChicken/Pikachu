@@ -8,9 +8,4 @@ import person_input.Employee;
 
 public class Evaluate_Employee {	
 	
-	public static boolean Fire (Employee employee){
-		return Evaluate(employee);
-	}
-	
-	
 }
