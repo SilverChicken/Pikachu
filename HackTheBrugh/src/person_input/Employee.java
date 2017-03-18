@@ -46,7 +46,7 @@ public class Employee {
 	}
 	
 	public double averageResponse() {
-		return 0.5; //for now, idk yo
+		return 0.0;
 	}
 	
 	 public int monthsWorked() {
