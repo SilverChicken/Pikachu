@@ -28,7 +28,7 @@ public class Random_data_sheet {
 		Random rand = new Random();
 		int min = 1000;
 		int max = 9999;
-	        int idg=rand.nextInt(rand.nextInt((max - min) + 1));
+	        int idg=(int) (Math.random() * max + min);
 		return idg;
 	}
 	public static int yeargen()
@@ -36,7 +36,7 @@ public class Random_data_sheet {
 		Random rand = new Random();
 		int min = 2000;
 		int max = 2016;
-	        int yearg=rand.nextInt(rand.nextInt((max - min) + 1));
+	        int yearg=(int) ((Math.random() * max) + min);
 		return yearg;
 	} 
 	public static int monthgen()
@@ -44,7 +44,7 @@ public class Random_data_sheet {
 		Random rand = new Random();
 		int min = 0;
 		int max = 11;
-	        int monthg=rand.nextInt(rand.nextInt((max - min) + 1));
+	        int monthg=(int)((Math.random() * max) + min);
 		return monthg;
 	} 
 	public static List<Boolean> boolgen()
