@@ -36,21 +36,24 @@ public class Employee {
 		return i / n;
 	}
 	
-	/**
-	 * Calculates the average ratings given to an employee
-	 * and returns the normalised value.
-	 * @return A value between 0.0 - 1.0
-	 */
 	public double averageRating() {
 		double i = 0;
 		double n = (double)interRating.size();
 		for(double d : interRating) {
 			i += d;
 		}
-		return (i / n) / MAX_RATING;	
+		return (i / n);	
 	}
 	
 	public double averageResponse() {
 		return 0.5; //for now, idk yo
 	}
+	
+	 public int monthsWorked() {
+		 Calendar c = Calendar.getInstance();
+		 int diffYear = c.get(Calendar.YEAR) - this.yearsWorked;
+		 int diffMonths = diffYear * 12 + c.get(Calendar.MONTH) - this.month +1;
+		 return diffMonths;
+	 }
+		 
 }
