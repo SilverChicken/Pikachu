@@ -32,16 +32,12 @@ public class Automation_Neural {
 			{ 0.0 }, 
 			{ 1.0 } 
 			};
-
-	private static double[][] kickOrNot_data_matrix = {
-			{ 0.95, 0.8, 0.45, 0.8 }
-	};
 	
 	private static double[][] kickOrNot1_data_matrix = {
 			{0.5}
 	};
 	
-	public static void main(String[] args) {
+	public static void Evaluate(double[][] employee) {
 		BasicNetwork n = new BasicNetwork();
 		n.addLayer(new BasicLayer(null, true, 2));
 		n.addLayer(new BasicLayer(new ActivationSigmoid(), true, 3));
@@ -63,12 +59,12 @@ public class Automation_Neural {
 		// Execute order 66
 		System.out.println("Neural Network Results:");
 
-		for (MLDataPair pair : trainingSet) {
+		for (MLDataPair pair : trainingSet){
 			final MLData output = n.compute(pair.getInput());
-			System.out.println(pair.getInput().getData(0) + ", actual="
-					+ output.getData(0) + ",ideal=" + pair.getIdeal().getData(0));
+	//		System.out.println(pair.getInput().getData(0) + ", actual="
+	//				+ output.getData(0) + ",ideal=" + pair.getIdeal().getData(0));
 		}
-		MLDataSet questionSet = new BasicMLDataSet(kickOrNot_data_matrix, kickOrNot1_data_matrix);
+		MLDataSet questionSet = new BasicMLDataSet(employee, kickOrNot1_data_matrix);
 		for (MLDataPair pair : questionSet) {
 			final MLData output = n.compute(pair.getInput());
 			System.out.println(pair.getInput().getData(0) + ", actual=" + output.getData(0));

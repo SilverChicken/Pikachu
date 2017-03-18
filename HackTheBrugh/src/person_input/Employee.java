@@ -43,8 +43,8 @@ public class Employee {
 		return (i / n);	
 	}
 	
-	abstract double averageResponse() {
-		return 0.0;
+	public double averageResponse() {
+		return 0.5;
 	}
 	
 	 public int monthsWorked() {
