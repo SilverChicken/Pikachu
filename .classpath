@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="HackTheBrugh/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/jack/Downloads/encog-core-3.3.0/lib/encog-core-3.3.0.jar"/>
 	<classpathentry kind="output" path="HackTheBrugh/bin"/>
 </classpath>

@@ -1,3 +1,5 @@
+package machine_learning;
+
 import org.encog.engine.network.activation.ActivationSigmoid;
 import org.encog.ml.data.MLData;
 import org.encog.ml.data.MLDataPair;
@@ -35,6 +37,10 @@ public class Automation_Neural {
 			{ 0.95, 0.8, 0.45, 0.8 }
 	};
 	
+	private static double[][] kickOrNot1_data_matrix = {
+			{0.5}
+	};
+	
 	public static void main(String[] args) {
 		BasicNetwork n = new BasicNetwork();
 		n.addLayer(new BasicLayer(null, true, 2));
@@ -61,6 +67,11 @@ public class Automation_Neural {
 			final MLData output = n.compute(pair.getInput());
 			System.out.println(pair.getInput().getData(0) + ", actual="
 					+ output.getData(0) + ",ideal=" + pair.getIdeal().getData(0));
+		}
+		MLDataSet questionSet = new BasicMLDataSet(kickOrNot_data_matrix, kickOrNot1_data_matrix);
+		for (MLDataPair pair : questionSet) {
+			final MLData output = n.compute(pair.getInput());
+			System.out.println(pair.getInput().getData(0) + ", actual=" + output.getData(0));
 		}
 	
 	}
