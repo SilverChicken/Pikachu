@@ -11,12 +11,10 @@ import java.util.Collections;
 
 public class Employee {
 	
-	final int MAX_RATING = 10;
-	
-	int Id;
-	int month,yearsWorked;
-	List<Boolean> lateOrNot = new ArrayList<Boolean>();
-	List<Double> interRating = new ArrayList<Double>();
+	private int Id;
+	private int month,yearsWorked;
+	private List<Boolean> lateOrNot = new ArrayList<Boolean>();
+	private List<Double> interRating = new ArrayList<Double>();
 	HashMap<String,String> actionToContext = new HashMap<String,String>();
 	
 	
@@ -53,13 +51,6 @@ public class Employee {
 	}
 	
 	public double averageResponse() {
-		return 0.5;
-	}	
-	
-	public int monthsWorked() {
-		Calendar c = Calendar.getInstance();
-		int diffYear = c.get(Calendar.YEAR) - this.yearsWorked;
-		int diffMonths = diffYear * 12 + c.get(Calendar.MONTH) - this.month +1;
-		return diffMonths;
+		return 0.5; //for now, idk yo
 	}
 }
