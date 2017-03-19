@@ -24,6 +24,7 @@ public class Learn_Table {
 			emp[i][0][1] = b;
 			emp[i][0][2] = c;
 			emp[i][0][3] = d;
+			
 				
 			double z = Math.sqrt(a*a + b*b +c*c + d*d);
 			empMatrix[i][0][0] = a/z;
