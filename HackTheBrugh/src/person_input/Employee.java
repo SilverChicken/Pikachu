@@ -46,15 +46,15 @@ public class Employee {
 		return 0.5;
 	}
 	
-	 public int monthsWorked() {
+	 public double monthsWorked() {
 		 Calendar c = Calendar.getInstance();
 		 int diffYear = c.get(Calendar.YEAR) - this.yearsWorked;
 		 int diffMonths = diffYear * 12 + c.get(Calendar.MONTH) - this.month +1;
-		 return diffMonths;
+		 return (double)diffMonths;
 	 }
 
 	public int getId() {
 		return Id;
 	}
 		 
-}
+} //Nothing crazy going on here

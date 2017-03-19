@@ -31,7 +31,7 @@ public class graphy extends Application {
         series1.setName("Perfomance Evaluation");  
         for(String s:results.keySet())
         {
-            series1.getData().add(new XYChart.Data(s,results.get(s)));
+            series1.getData().add(new XYChart.Data(s,results.get(s)*100));
         }
       /*  series1.getData().add(new XYChart.Data(brazil, 2));
         series1.getData().add(new XYChart.Data(france, 3));
@@ -59,11 +59,11 @@ public class graphy extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    public void graphy(HashMap results)
+    public static void graphis(HashMap result)
     {
-        this.results = new HashMap(results);
-        this.results.keySet().removeAll(results.keySet());
-        results.putAll(this.results);
+        results = new HashMap(result);
+        results.keySet().removeAll(result.keySet());
+        result.putAll(results);
     }
  
   public static void main(String[] args) {

@@ -2,9 +2,14 @@ package ui;
 
 import java.awt.*;        // Using AWT container and component classes
 import java.awt.event.*;  // Using AWT event classes and listener interfaces
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.BoxLayout;
+import javax.swing.SpringLayout;
 import javax.swing.WindowConstants;
+
+import person_input.Employee;
  
 // An AWT program inherits from the top-level container java.awt.Frame
 public class Gui extends Frame implements ActionListener {
@@ -27,6 +32,10 @@ public class Gui extends Frame implements ActionListener {
    private TextField Colum3;
    private Label  lblColum4;
    private TextField Colum4;
+   
+   private Button good;
+   private Button bad;
+   
    
    // Constructor to setup GUI components and event handlers
    public Gui () {
@@ -79,6 +88,10 @@ public class Gui extends Frame implements ActionListener {
       Colum4.setEditable(false);
       add(Colum4);
       
+      good = new Button("Good worker");
+      add(good);
+      bad = new Button("Bad worker");
+      add(bad);
     
       close.addActionListener(new ActionListener() {
     	    public void actionPerformed(ActionEvent e)
@@ -88,13 +101,39 @@ public class Gui extends Frame implements ActionListener {
     	    }
     	});
       
+      good.addActionListener(new ActionListener(){
+    	 public void actionPerformed(ActionEvent d)
+    	 {
+    		 if(annoc.getText() == lbl1){
+    			 int id = Integer.parseInt(likely.getText());
+    			 double[][] new_target = {{1.0}};
+    			 String[] data = datas.get(id).toString().split(" ");
+    			 double[][] new_data = {{Double.parseDouble(data[0]),Double.parseDouble(data[1]),Double.parseDouble(data[2]),Double.parseDouble(data[3])}};
+    		 }
+    	 }
+      });
+      bad.addActionListener(new ActionListener(){
+     	 public void actionPerformed(ActionEvent f)
+     	 {
+     		 if(annoc.getText() == lbl3 | annoc.getText() == lbl2){
+     			 int id = Integer.parseInt(likely.getText());
+     			 double[][] new_target = {{0.0}};
+     			 String[] data = datas.get(id).toString().split(" ");
+     			 double[][] new_data = {{Double.parseDouble(data[0]),Double.parseDouble(data[1]),Double.parseDouble(data[2]),Double.parseDouble(data[3])}};
+     		 }
+     	 }
+       }); 
+      
+      
+      
+      
       proceed.addActionListener(this);
       
       
          
  
       setTitle("You are fired!");  // "super" Frame sets its title
-      setSize(450, 300);        // "super" Frame sets its initial window size
+      setSize(360, 250);        // "super" Frame sets its initial window size
  
      
  
@@ -114,6 +153,9 @@ public class Gui extends Frame implements ActionListener {
       // Invoke the constructor to setup the GUI, by allocating an instance
       Gui app = new Gui();
 	  results = person_input.Random_data_sheet.mainish();
+	  for(Employee e : person_input.Random_data_sheet.getEmps()){
+		  datas.put(e.getId(), new Double[]{e.averageLate(), e.averageRating(), e.averageResponse(), e.monthsWorked()} );
+	  }
 	  
          // or simply "new AWTCounter();" for an anonymous instance
 	  for(Integer k : results.keySet()){
@@ -139,15 +181,20 @@ public class Gui extends Frame implements ActionListener {
 		   else 
 			   annoc.setText(lbl3);
 	   }
-	   double a=0.0; 
-	   double b=0.0; 
-	   double c=0.0; 
-	   double d=0.0; 
+	   double a=datas.get(Id)[0]; 
+	   double b=datas.get(Id)[1]; 
+	   double c=datas.get(Id)[2]; 
+	   double d=datas.get(Id)[3]; 
 	   
 	   double late = (Math.round(a * 100.0) / 100.0);
 	   double rating = (Math.round(b * 100.0) / 100.0);
 	   double response = (Math.round(c * 100.0) / 100.0);
 	   double time = (Math.round(d * 100.0) / 100.0);
+	   
+	   Colum1.setText(String.valueOf(late));
+	   Colum2.setText(String.valueOf(rating));
+	   Colum3.setText(String.valueOf(response));
+	   Colum4.setText(String.valueOf(time));
 	   
 	   
 	   
