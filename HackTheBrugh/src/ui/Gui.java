@@ -107,11 +107,14 @@ public class Gui extends Frame implements ActionListener {
    
    HashMap<Integer, Double> results = new HashMap<Integer,Double>();
    
+   static
+   HashMap<Integer, Double[]> datas = new HashMap<Integer,Double[]>();
    public static void main(String[] args) {
 	   
       // Invoke the constructor to setup the GUI, by allocating an instance
       Gui app = new Gui();
 	  results = person_input.Random_data_sheet.mainish();
+	  
          // or simply "new AWTCounter();" for an anonymous instance
 	  for(Integer k : results.keySet()){
 	  System.out.println(k);
@@ -136,7 +139,15 @@ public class Gui extends Frame implements ActionListener {
 		   else 
 			   annoc.setText(lbl3);
 	   }
+	   double a=0.0; 
+	   double b=0.0; 
+	   double c=0.0; 
+	   double d=0.0; 
 	   
+	   double late = (Math.round(a * 100.0) / 100.0);
+	   double rating = (Math.round(b * 100.0) / 100.0);
+	   double response = (Math.round(c * 100.0) / 100.0);
+	   double time = (Math.round(d * 100.0) / 100.0);
 	   
 	   
 	   
