@@ -21,20 +21,13 @@ public class HireGui extends Frame implements ActionListener {
 	  // private String lbl1 = "Shows great potential";
 	  //private String lbl2 = "Ought";
 	   private TextField IDin;  // Declare a TextField component
-	   private TextField likely; //Declare a TextField component
-	   private TextField annoc;
+	   private TextField resuIn; //Declare a TextField component
+	   private TextField interIn;
 	   private Button proceed;   // Declare a Button component
 	   private Button close;
 	   private Button addapp;
 	   
 	   private Label  lblColum1;
-	 //  private TextField Colum1;
-	 //  private Label  lblColum2;
-	 //  private TextField Colum2;
-	 //  private Label  lblColum3;
-	 //  private TextField Colum3;
-	 //  private Label  lblColum4;
-	 //  private TextField Colum4;
 	   
 	   // Constructor to setup GUI components and event handlers
 	   public HireGui () {
@@ -55,58 +48,33 @@ public class HireGui extends Frame implements ActionListener {
 	      lblCount2 = new Label("Resume");
 	      add(lblCount2); 
 	      
-	      likely = new TextField("",30);
-	      likely.setEditable(true);
-	      add(likely);
+	      resuIn = new TextField("",30);
+	      resuIn.setEditable(true);
+	      add(resuIn);
 	      
 	      lblColum1 = new Label("Interview Transcript");
 	      add(lblColum1);
 	      
-	      annoc = new TextField("",30);
-	      annoc.setEditable(true);
-	      add(annoc);
+	      interIn = new TextField("",30);
+	      interIn.setEditable(true);
+	      add(interIn);
 	      
 	      addapp = new Button("add applicant");
 	      add(addapp);
-	    
-	      /*
-	      Colum1 = new TextField("",10);
-	      Colum1.setEditable(false);
-	      add(Colum1);
-	      
-	      lblColum2 = new Label("Rating:");
-	      add(lblColum2);
-	      Colum2 = new TextField("",10);
-	      Colum2.setEditable(false);
-	      add(Colum2);
-
-	      lblColum3 = new Label("Response:");
-	      add(lblColum3);
-	      Colum3 = new TextField("",10);
-	      Colum3.setEditable(false);
-	      add(Colum3);
-
-	      lblColum4 = new Label("Time Spent at the company:");
-	      add(lblColum4);
-	      Colum4 = new TextField("",10);
-	      Colum4.setEditable(false);
-	      add(Colum4);
-	      */
-	      
-	      
+	     
 	      
 	      addapp.addActionListener(new ActionListener() {
 	    	    public void actionPerformed(ActionEvent e)
 	    	    {
 	    	        //Execute when button is pressed
-	    	    	In resu = new In(likely.getText());
-	    	    	In interv = new In(annoc.getText());
+	    	    	In resu = new In(resuIn.getText());
+	    	    	In interv = new In(interIn.getText());
 	    	    	
 	    	        apps.add(new applicant(Integer.parseInt(IDin.getText()), resu, interv));
 	    	        
 	    	        IDin.setText("");
-	    	        likely.setText("");
-	    	        annoc.setText("");
+	    	        resuIn.setText("");
+	    	        interIn.setText("");
 	    	    }
 	    	});
 	    
@@ -140,7 +108,7 @@ public class HireGui extends Frame implements ActionListener {
 	   public static void main(String[] args) {
 		   
 	      // Invoke the constructor to setup the GUI, by allocating an instance
-	      Gui app = new Gui();
+	      HireGui app = new HireGui();
 	         // or simply "new AWTCounter();" for an anonymous instance
 		  
 	   }
@@ -156,3 +124,4 @@ public class HireGui extends Frame implements ActionListener {
 		   
 		   
 	   }
+
