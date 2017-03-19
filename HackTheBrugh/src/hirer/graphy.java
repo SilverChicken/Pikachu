@@ -1,4 +1,4 @@
-package hiring;
+package hirer;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
