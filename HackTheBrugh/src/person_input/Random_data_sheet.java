@@ -69,10 +69,10 @@ public class Random_data_sheet {
 		return interrating;
 	} 
 	public static HashMap<Integer, Double> mainish() {
-		for(int i=0;i<40;i++)
+		for(int i=0;i<50;i++)
                 {
                     emps.add(new Employee(idgen(),monthgen(),yeargen(),boolgen(),interratinggen(),new HashMap<String,String>()));
                 }
 		return Learn_Table.Learn(emps);
-	}
+	} //Just generates a list of Employees with random characteristics. Useful for training the network, and for testing
 }
