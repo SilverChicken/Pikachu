@@ -59,19 +59,29 @@ public class Gui extends Frame implements ActionListener {
 
    }
  
-   // The entry main() method
+   static // The entry main() method
+   
+   HashMap<Integer, Double> results = new HashMap<Integer,Double>();
+   
    public static void main(String[] args) {
       // Invoke the constructor to setup the GUI, by allocating an instance
       Gui app = new Gui();
+	  results = person_input.Random_data_sheet.mainish();
          // or simply "new AWTCounter();" for an anonymous instance
+	  for(Integer k : results.keySet()){
+	  System.out.println(k);
+	  System.out.println(results.get(k));
+	  }
    }
  
    // ActionEvent handler - Called back upon button-click.
    @Override
    public void actionPerformed(ActionEvent evt) {
-	   HashMap<Integer, Double> results = new HashMap<Integer,Double>();
-	   results = person_input.Random_data_sheet.mainish();
+
 	   String ID = IDin.getText();
-	   likely.setText(results.get(ID).toString());
+	   int Id = Integer.parseInt(ID);
+	   if(results.get(Id) != null){
+		   likely.setText(String.valueOf((Math.round(results.get(Id) * 100.0) / 100.0)));
+	   }
    }
 }
