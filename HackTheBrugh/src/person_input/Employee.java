@@ -5,7 +5,6 @@ import java.util.List;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 
 public class Employee {
 	
@@ -53,5 +52,9 @@ public class Employee {
 		 int diffMonths = diffYear * 12 + c.get(Calendar.MONTH) - this.month +1;
 		 return diffMonths;
 	 }
+
+	public int getId() {
+		return Id;
+	}
 		 
 }

@@ -6,9 +6,7 @@ import firing_simulator.Learn_Table;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.ArrayList;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -25,15 +23,13 @@ public class Random_data_sheet {
         
 	public static int idgen()
 	{
-		Random rand = new Random();
 		int min = 1000;
 		int max = 9999;
-	        int idg=(int) (Math.random() * max + min);
+	        int idg=(int) (Math.random() * (max - min) + min);
 		return idg;
 	}
 	public static int yeargen()
 	{
-		Random rand = new Random();
 		int min = 2000;
 		int max = 2016;
 	        int yearg=(int) ((Math.random() * (max - min)) + min);
@@ -41,10 +37,8 @@ public class Random_data_sheet {
 	} 
 	public static int monthgen()
 	{
-		Random rand = new Random();
-		int min = 0;
 		int max = 11;
-	        int monthg=(int)((Math.random() * max) + min);
+	        int monthg=(int)((Math.random() * max));
 		return monthg;
 	} 
 	public static List<Boolean> boolgen()
@@ -67,11 +61,11 @@ public class Random_data_sheet {
         	}
 		return interrating;
 	} 
-	public static void main (String[] args) {
+	public static HashMap<Integer, Double> mainish () {
 		for(int i=0;i<100;i++)
                 {
                     emps.add(new Employee(idgen(),monthgen(),yeargen(),boolgen(),interratinggen(),new HashMap<String,String>()));
                 }
-		Learn_Table.Learn(emps);
+		return Learn_Table.Learn(emps);
 	}
 }

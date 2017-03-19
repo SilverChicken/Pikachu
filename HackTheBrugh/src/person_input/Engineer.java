@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Engineer extends Employee{
+	
+	HashMap<String,String> procedure = new HashMap<String,String>(); 
 
 	public Engineer(int Id, int month, int year, List<Boolean> lateOrNot, List<Double> interRating,
 			HashMap<String, String> actionToContext) {
@@ -11,7 +13,19 @@ public class Engineer extends Employee{
 	}
 
 	public double averageResponse() {
-		//Return something
-		return 0.0;
+		double i = 0;
+		for(String key : actionToContext.keySet()){
+			if (procedure.get(key) == null){
+				i += 0.5;
+			}
+			else if (procedure.get(key) == actionToContext.get(key)){
+				i += 1;
+			}
+			else
+			{
+				i += 0;
+			}
+		}
+		return i / actionToContext.size();
 	}
 }

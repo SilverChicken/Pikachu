@@ -1,5 +1,8 @@
 package machine_learning;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.encog.engine.network.activation.ActivationSigmoid;
 import org.encog.ml.data.MLData;
 import org.encog.ml.data.MLDataPair;
@@ -9,6 +12,8 @@ import org.encog.ml.train.MLTrain;
 import org.encog.neural.networks.BasicNetwork;
 import org.encog.neural.networks.layers.BasicLayer;
 import org.encog.neural.networks.training.propagation.resilient.ResilientPropagation;
+
+import person_input.Employee;
 
 public class Automation_Neural {
 
@@ -81,7 +86,7 @@ public class Automation_Neural {
 			{0.5}
 	};
 	
-	public static void Evaluate(double[][][] employee, double[][][] emp, int k) {
+	public static HashMap<Integer, Double> Evaluate(double[][][] employee, List<Employee> EmployeeList, int k) {
 		BasicNetwork n = new BasicNetwork();
 		n.addLayer(new BasicLayer(null, true, 4));
 		n.addLayer(new BasicLayer(new ActivationSigmoid(), true, 10));
@@ -108,21 +113,25 @@ public class Automation_Neural {
 
 		// Execute order 66
 		System.out.println("Neural Network Results:");
+		
+		HashMap<Integer, Double> results = new HashMap<Integer,Double>();
 
-		for (MLDataPair pair : trainingSet){
+		/*for (MLDataPair pair : trainingSet){
 			final MLData output = n.compute(pair.getInput());
-	//		System.out.println(pair.getInput().getData(0) + ", actual="
-	//				+ output.getData(0) + ",ideal=" + pair.getIdeal().getData(0));
+					+ output.getData(0) + ",ideal=" + pair.getIdeal().getData(0));
 		}
+		*/
 		for(int i = 0; i < k; i++) {
 			System.out.println(i);
 			MLDataSet questionSet = new BasicMLDataSet(employee[i], kickOrNot1_data_matrix);
 			for (MLDataPair pair : questionSet) {
 				final MLData output = n.compute(pair.getInput());
 				System.out.println(pair.getInput().getData(0) +" " + pair.getInput().getData(1)+" "+pair.getInput().getData(2)+" "+pair.getInput().getData(3) + ", actual=" + output.getData(0));
-				System.out.println(emp[i][0][0] + " " + emp[i][0][1] + " " + emp[i][0][2] + " " + emp[i][0][3] + " " );
+				//System.out.println(emp[i][0][0] + " " + emp[i][0][1] + " " + emp[i][0][2] + " " + emp[i][0][3] + " " );
+				results.put(EmployeeList.get(i).getId(), output.getData(0));
 			}
 		}
+		return results;
 	
 	}
 

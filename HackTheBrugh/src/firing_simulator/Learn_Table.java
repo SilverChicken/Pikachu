@@ -7,7 +7,7 @@ import person_input.Employee;
 
 public class Learn_Table {	
 	
-	public static void Learn(List<Employee> EmployeeList) {
+	public static HashMap<Integer, Double> Learn(List<Employee> EmployeeList) {
 		int n = EmployeeList.size();
 		int k = 4;
 		double[][][] empMatrix = new double[n][1][k];
@@ -33,7 +33,7 @@ public class Learn_Table {
 			
 		}
 		
-		machine_learning.Automation_Neural.Evaluate(empMatrix,emp, n);
+		return machine_learning.Automation_Neural.Evaluate(empMatrix,EmployeeList, n );
 		
 	}
 		
