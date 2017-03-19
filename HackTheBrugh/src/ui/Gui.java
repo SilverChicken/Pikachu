@@ -10,11 +10,12 @@ import javax.swing.WindowConstants;
 public class Gui extends Frame implements ActionListener {
    private Label lblCount;    // Declare a Label component 
    private Label lblCount2;
-   private Label lbl1 = new Label("Very satisfactory");
-   private Label lbl2 = new Label("Underperforming");
-   private Label lbl3 = new Label("Unsatisfactory");
+   private String lbl1 = "Very satisfactory";
+   private String lbl2 = "Underperforming";
+   private String lbl3 = "Unsatisfactory";
    private TextField IDin;  // Declare a TextField component
    private TextField likely; //Declare a TextField component
+   private TextField annoc;
    private Button proceed;   // Declare a Button component
    private Button close;
   
@@ -40,6 +41,10 @@ public class Gui extends Frame implements ActionListener {
       likely = new TextField("",10);
       likely.setEditable(false);
       add(likely);
+      
+      annoc = new TextField("",30);
+      annoc.setEditable(false);
+      add(annoc);
       
     //  close = new Button("Close");
     //  close.
@@ -95,9 +100,9 @@ public class Gui extends Frame implements ActionListener {
 	   if(results.get(Id) != null){
 		   double u = 1 - (Math.round(results.get(Id) * 100.0) / 100.0);
 		   likely.setText(String.valueOf(u));
-		   if(u > 0.6) add(lbl1);
-		   else if( u > 0.2) add(lbl2);
-		   else add(lbl3);
+		   if(u > 0.6) annoc.setText(lbl1);
+		   else if( u > 0.2) annoc.setText(lbl2);
+		   else annoc.setText(lbl3);
 	   }
    }
    public void xPressed(ActionEvent et){

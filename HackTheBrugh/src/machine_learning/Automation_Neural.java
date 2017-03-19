@@ -88,6 +88,7 @@ public class Automation_Neural {
 	};
 	
 	public static HashMap<Integer, Double> Evaluate(double[][][] employee, List<Employee> EmployeeList, int k) {
+		
 		BasicNetwork n = new BasicNetwork();
 		n.addLayer(new BasicLayer(null, true, 4));
 		n.addLayer(new BasicLayer(new ActivationSigmoid(), true, 10));
@@ -110,6 +111,7 @@ public class Automation_Neural {
 			System.out.println(mp);
 			mp++;
 			//System.out.println("Epoch#" + epoch + " Error:" + train.getError());
+			if(mp > 2000) return person_input.Random_data_sheet.mainish();
 		} while (train.getError() > 0.01);
 
 		// Execute order 66
