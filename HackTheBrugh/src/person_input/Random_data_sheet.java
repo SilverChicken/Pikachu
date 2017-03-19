@@ -52,7 +52,7 @@ public class Random_data_sheet {
 	{
 		Random randomBoolean = new Random();
 		ArrayList<Boolean> lateornot = new ArrayList<Boolean>();
-                for (int i = 0; i < 40; i++) 
+                for (int i = 0; i < 7; i++) 
 		{
             		lateornot.add(randomBoolean.nextBoolean());
         	}
@@ -62,7 +62,7 @@ public class Random_data_sheet {
 	{
 		Random rand = new Random();
 		ArrayList<Double> interrating = new ArrayList<Double>();
-	        for (int i = 0; i < 40; i++) 
+	        for (int i = 0; i < 3; i++) 
 		{
             		interrating.add(10 * rand.nextDouble());
         	}

@@ -130,8 +130,10 @@ public class Automation_Neural {
 				System.out.println(pair.getInput().getData(0) +" " + pair.getInput().getData(1)+" "+pair.getInput().getData(2)+" "+pair.getInput().getData(3) + ", actual=" + output.getData(0));
 				//System.out.println(emp[i][0][0] + " " + emp[i][0][1] + " " + emp[i][0][2] + " " + emp[i][0][3] + " " );
 				results.put(EmployeeList.get(i).getId(), output.getData(0));
+				System.out.println(EmployeeList.get(i).getId());
 			}
 		}
+		
 		return results;
 	
 	}

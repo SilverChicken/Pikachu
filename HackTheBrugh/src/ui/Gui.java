@@ -16,6 +16,7 @@ public class Gui extends Frame implements ActionListener {
    private TextField IDin;  // Declare a TextField component
    private TextField likely; //Declare a TextField component
    private Button proceed;   // Declare a Button component
+   private Button close;
   
    // Constructor to setup GUI components and event handlers
    public Gui () {
@@ -40,6 +41,9 @@ public class Gui extends Frame implements ActionListener {
       likely.setEditable(false);
       add(likely);
       
+    //  close = new Button("Close");
+    //  close.
+    // add(close);
    
       proceed.addActionListener(this);
          // btnCount is the source object that fires ActionEvent when clicked.
@@ -66,7 +70,7 @@ public class Gui extends Frame implements ActionListener {
    }
    
 
-static // The entry main() method
+   static // The entry main() method
    
    HashMap<Integer, Double> results = new HashMap<Integer,Double>();
    
