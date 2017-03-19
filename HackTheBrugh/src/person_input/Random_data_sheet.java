@@ -37,7 +37,7 @@ public class Random_data_sheet {
 		Random rand = new Random();
 		int min = 2000;
 		int max = 2016;
-	        int yearg=(int) ((Math.random() * max) + min);
+	        int yearg=(int) ((Math.random() * (max - min)) + min);
 		return yearg;
 	} 
 	public static int monthgen()
@@ -68,11 +68,11 @@ public class Random_data_sheet {
         	}
 		return interrating;
 	} 
-	public static void main (String[] args) {
+	public static HashMap<Integer, Double> mainish() {
 		for(int i=0;i<40;i++)
                 {
                     emps.add(new Employee(idgen(),monthgen(),yeargen(),boolgen(),interratinggen(),new HashMap<String,String>()));
                 }
-		Learn_Table.Learn(emps);
+		return Learn_Table.Learn(emps);
 	}
 }

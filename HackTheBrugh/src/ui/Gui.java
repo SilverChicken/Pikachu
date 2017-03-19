@@ -40,7 +40,7 @@ public class Gui extends Frame implements ActionListener {
          // Clicking btnCount invokes actionPerformed().
  
       setTitle("You are fired!");  // "super" Frame sets its title
-      setSize(250, 100);        // "super" Frame sets its initial window size
+      setSize(450, 300);        // "super" Frame sets its initial window size
  
       // For inspecting the components/container objects
       // System.out.println(this);
