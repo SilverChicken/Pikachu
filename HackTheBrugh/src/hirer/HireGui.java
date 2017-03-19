@@ -101,9 +101,9 @@ public class HireGui extends Frame implements ActionListener {
 	   }
 	   
 
-	   static // The entry main() method
+	   	   static // The entry main() method
 	   List<applicant> apps = new ArrayList<applicant>();
-	   HashMap<Integer, Double> results = new HashMap<Integer,Double>();
+	   HashMap<String, Double> results = new HashMap<String,Double>();
 	   
 	   public static void main(String[] args) {
 		   
