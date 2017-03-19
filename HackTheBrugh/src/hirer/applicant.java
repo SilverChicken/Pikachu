@@ -6,8 +6,12 @@ public class applicant {
 	private String interview;
 	
 	public applicant(int Id, In resume, In interview ){
-		this.resume = resume.readAll();
-		this.interview = interview.readAll(); //.split(" ");
+		if(resume.scanner != null){
+			this.resume = resume.readAll();
+		}
+		if(interview.scanner != null){
+			this.interview = interview.readAll(); //.split(" ");
+		}
 	}
 	
 	public int getId() {
